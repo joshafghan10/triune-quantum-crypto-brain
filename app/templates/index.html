@@ -1,0 +1,138 @@
+# Triune Quantum Crypto Brain architecture
+
+## 1. Vision
+
+Triune Quantum Crypto Brain is a living multi-agent architecture for crypto research, market understanding, risk orchestration, and decision support. The system uses three specialist brains with an optional fourth meta-brain to supervise disagreement, memory, and human communication. Every exchange between brains is a rich neuro-symbolic message containing neural activations, symbolic claims, quantitative metrics, and optional quantum summaries.
+
+## 2. Core architecture
+
+```mermaid
+flowchart TD
+    A[Market Data Sources] --> B[Brain 1: Perception / Reality Engine]
+    B --> C[Neuro-Symbolic Message Bus]
+    C --> D[Brain 2: Research / Causal Hypotheses]
+    C --> E[Brain 3: Decision / Risk Allocation]
+    C --> F[Brain 4: Meta / Memory / Orchestrator]
+    D --> G[Hypothesis ranking & causal graph]
+    E --> H[Risk budget, CVaR, liquidity constraints]
+    F --> I[Disagreement detection & replay memory]
+    D --> J[Optional Quantum Subroutines]
+    J --> C
+    H --> K[Human decision surface]
+    I --> K
+```
+
+## 3. Brain responsibilities
+
+### Brain 1 — Perception / Market Reality Engine
+
+- Fuses order books, trades, funding, OI, token flows, stablecoins, reserves, and social/news embeddings.
+- Maintains a probabilistic estimate of the live market situation.
+- Tracks volatility regime, liquidity pressure, and structural risk.
+- Emits rich hybrid messages to the Research and Decision brains.
+
+### Brain 2 — Research / Hypothesis & Causal Engine
+
+- Generates causal explanations and regime hypotheses.
+- Maintains a symbolic graph of causal relations.
+- Tests claims with empirical evidence and confidence scores.
+- Uses quantum subroutines only for narrow tasks such as expectation estimation or kernel-like scoring.
+
+### Brain 3 — Decision / Risk & Allocation Engine
+
+- Converts the world model into position sizing and portfolio decisions.
+- Optimises around liquidity, volatility, drawdown, CVaR, and scenario stress.
+- Produces risk-aware recommendations and symbolic justification traces.
+
+### Brain 4 — Meta / Orchestrator & Memory Brain
+
+- Monitors disagreement and uncertainty between agents.
+- Maintains long-term memory and surfaces important content to the human.
+- Decides when to invoke quantum resources.
+- Oversees the high-level interactive flow.
+
+## 4. Neuro-symbolic messaging protocol
+
+Every message includes:
+
+- neural component: embeddings, attention pattern, uncertainty tensor, latent trajectory
+- symbolic component: typed causal/regime/constraint/hypothesis claims
+- quantitative component: distributions, risk estimates, divergences, value-of-information
+- metadata: sender, receiver, timestamp, priority, ack requirement, message type
+- optional quantum summary
+
+Example message flow:
+
+- Perception broadcasts a market state message
+- Research tests causal explanations and replies with a hypothesis message
+- Decision converts the shared model into a risk recommendation
+- Meta resolves disagreement and surfaces the summary
+
+## 5. Quantum component: honest and narrow
+
+### Qubits, superposition, and entanglement explained simply
+
+A qubit is the basic unit of quantum information. Unlike a classical bit that is either 0 or 1, a qubit can exist in a superposition of both states. This means the system can represent a combination of states until measurement collapses it to a definite outcome.
+
+Entanglement is when two qubits become linked so their joint state cannot be described independently. The outcomes become correlated in ways that do not arise in classical separable systems.
+
+### What this system uses quantum for
+
+This implementation intentionally uses quantum only for narrow hybrid tasks such as:
+
+- expectation estimation for a small variational circuit
+- kernel-like similarity scoring for candidate regime signatures
+- small combinatorial heuristics when the classical path is clearly bottlenecked
+
+### What it does not claim
+
+- no general-purpose quantum neural network replacement
+- no broad quantum advantage for all market prediction tasks
+- no unbounded quantum superiority over classical models
+
+This is a legitimate hybrid workflow: use classical models for the main system and quantum only when a small subproblem is a credible fit.
+
+## 6. Message schema (Pydantic v2)
+
+The code defines strict models for:
+
+- NeuralComponent
+- SymbolicClaim
+- QuantitativeAssertion
+- QuantumSummary
+- NeuroSymbolicMessage
+
+This makes the system strongly typed and easily serialisable to WebSocket and replay logs.
+
+## 7. Live dashboard
+
+The browser interface shows:
+
+- four brain clusters with distinct visual identities
+- animated edges representing live messages
+- graph edges that encode type, priority, strength, and quantum status
+- hover/inspection support through summary cards and live message panels
+- disagreement panel and quantum job cards
+- throughput and message volume indicators
+
+## 8. Replay and observability
+
+The bus stores message history and the dashboard can replay recent traffic. This allows you to inspect the shared world model, disagreements, hypotheses, and risk decisions over time.
+
+## 9. Where this can be extended
+
+- add more realistic market data ingestion via CCXT or exchange APIs
+- add wallet graph analysis and on-chain flow models
+- integrate causal inference libraries and portfolio optimisation systems
+- expand the quantum module to include more constrained variational workflows
+- store long-term memory in a semantic database or vector store
+
+## 10. Production-oriented design choices
+
+- typed message protocol for all communication
+- separation between brain reasoning, message bus, quantum adapter, and dashboard
+- simulator-first implementation with web integration
+- explicit handling of disagreement, consensus, and reasoning traces
+- limited quantum usage to keep the claims honestly bounded
+
+This makes the project useful both as a research prototype and as a strong foundation for higher-fidelity crypto intelligence systems.
